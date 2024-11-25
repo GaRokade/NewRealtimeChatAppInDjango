@@ -54,7 +54,7 @@ def Login(request):
             return redirect('/login/')
         else:
             auth_login(request, user)
-            next_url = request.GET.get('next', '/chat/')  # Redirect to 'next' or default to '/chat/'
+            next_url = request.GET.get('next', '/chat/') 
             return redirect(next_url)
         
     return render(request, 'login.html')
