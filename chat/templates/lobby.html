@@ -92,6 +92,9 @@
                   left: 37%; /* Adjusts the horizontal positioning */
                   font-size: 20px;
               }
+              .nouder{
+                text-decoration: none;
+              }
       input:hover{
         transform: scale(1.1); /* Slightly enlarges the button */
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Adds shadow effect */
@@ -155,9 +158,13 @@
   <body>
     <div>
       <h1>Chat Room</h1>
-      <div class="user"><a href="{% url 'user_list' %}">User List</a></div>
+      <div class="user">
+        <a href="{% url 'user_list' %} " class="nouder">User List</a>
+      </div>
       <div class="button-container">
-        <button class="btn"><a href="/Logout/">Logout</a></button>
+        <button class="btn">
+          <a href="/Logout/" class="nouder">Logout</a>
+        </button>
       </div>
     </div>
 
