@@ -1,7 +1,10 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import*
-
+from django.contrib.auth.signals import user_logged_in
+from django.dispatch import receiver
+from django.utils import timezone
+from .models import Profile
 from django.contrib import messages
 from django.contrib.auth import authenticate,login as auth_login,logout 
 # Create your views here.
@@ -59,3 +62,24 @@ def logout_page(request):
     logout(request)
     return redirect('/login/')
 
+@receiver(user_logged_in)
+def update_last_active(sender, request, user, **kwargs):
+    profile, created = Profile.objects.get_or_create(user=user)  # Get or create profile for the user
+    profile.last_active = timezone.now()  # Update last active time to now
+    profile.save()
+
+@login_required
+def user_list_view(request):
+    profiles = Profile.objects.all()  # Get all profiles
+    return render(request, 'user_list.html', {'profiles': profiles})
+ 
+ # signals.py
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.contrib.auth.models import User
+from .models import Profile
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
