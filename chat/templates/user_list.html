@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Users</title>
+  </head>
+  <body>
+    <h2>Online Users</h2>
+    <ul>
+      {% for user in users %}
+      <li>{{ user.username }}</li>
+      {% endfor %}
+    </ul>
+
+    <h3>User Activity</h3>
+    <ul>
+      {% for profile in profiles %}
+      <li>
+        {{ profile.user.username }} - Last Active: {{ profile.last_active }}
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
