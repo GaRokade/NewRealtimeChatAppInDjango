@@ -1,78 +1,167 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat Room</title>
+
     <style>
-      .sender {
-        position: relative;
-        left: 20px;
-        background-color: #7fffd4;
-        border-radius: 10px;
-        margin: 10px 0;
-        width: fit-content;
-        padding: 5px 8px;
-        font-size: 20px;
-        color: #000;
-      }
+                .button-container {
+                  position:Fixed
+                  display: flex;
+                  justify-content: flex-start; /* Aligns buttons horizontally */
+                  align-items: flex-end; /* Aligns buttons vertically at the bottom */
+                  height: 220px; /* Giving some height to the container */
+                }
 
-      .receiver {
-        position: absolute;
-        right: 20px;
-        background-color: rgba(0, 212, 255, 1);
-        border-radius: 10px;
-        margin: 10px 0;
-        padding: 5px 8px;
-        width: fit-content;
-        height: fit-content;
-        font-size: 20px;
-        color: #000;
-      }
-      .send {
-        position: fixed;
-        height: 42px;
-        width: 44px;
-        border-radius: 10px;
-        bottom: 12%;
-        left: 59%;
-        cursor: pointer;
-        background-color: #4caf50;
-        border: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+                .btn {
+                  position: absolute;
+                  top: 5%;
+                  right: 8%; /* Moves it 10px to the right */
+                  background-color: #4caf50; /* Sets the background color */
+                  border-radius: 10px; /* Rounds the corners */
+                  padding: 10px 20px; /* Adds padding for better click area */
+                  color: white; /* Sets text color to white */
+                  border: none; /* Removes the default border */
+                  cursor: pointer; /* Makes it look clickable */
+                  height:48px;
+                }
 
-      .send:hover {
-        background-color: #45a049;
-        transform: scale(1.1);
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-      }
+                /* Optional: Button hover effect */
+                .btn:hover {
+                  background-color: #45a049;
+                  transform: scale(1.1); /* Slightly enlarges the button */
+                  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+                }
+                .sender {
+                  position: relative;
+                  left: 20px;
+                  background-color: #7fffd4; /* Background color for sender */
+                  border-radius: 10px;
+                  margin: 10px 0;
+                  width: fit-content;
+                  padding: 5px 8px;
+                  font-size: 20px;
+                  color: #000; /* Text color (black) */
+                }
 
-      .send:active {
-        background-color: #9e7e40;
-        transform: scale(0.95);
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-      }
+                .receiver {
+                  position: absolute; /* Fixed "absolute" to "relative" */
+                  right: 20px; /* Corrected property with semicolon */
+                  background-color: rgba(
+                    0,
+                    212,
+                    255,
+                    1
+                  ); /* Background color for receiver */
+                  border-radius: 10px;
+                  margin: 10px 0;
+                  padding: 5px 8px;
+                  width: fit-content;
+                  height: fit-content; /* Corrected "fi-content" */
+                  font-size: 20px;
+                  color: #000; /* Text color (black) */
+                }
 
-      img {
-        height: 40px;
-        cursor: pointer;
-        position: fixed;
-        bottom: 12%;
-        left: 59%;
+                body {
+                  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+                  background-size: 400% 400%;
+                  animation: gradient 15s ease infinite;
+                  height: 100vh;
+                }
+
+                @keyframes gradient {
+                  0% {
+                    background-position: 0% 50%;
+                  }
+                  50% {
+                    background-position: 100% 50%;
+                  }
+                  100% {
+                    background-position: 0% 50%;
+                  }
+                }
+                input {
+                  position: fixed; /* Ensures it stays in place on scroll */
+                  width: 282px;
+                  height: 37px;
+                  border-radius: 10px;
+                  bottom: 12%; /* Adjusts the vertical positioning */
+                  left: 37%; /* Adjusts the horizontal positioning */
+                  font-size: 20px;
+              }
+      input:hover{
+        transform: scale(1.1); /* Slightly enlarges the button */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Adds shadow effect */
       }
-      h1 {
-        position: fixed;
-        font-size: 40px;
-      }
+              .send {
+                position: fixed; /* Ensures it stays in place on scroll */
+                height: 42px;
+                width: 44px;
+                border-radius: 10px;
+                bottom: 12%; /* Matches the input field */
+                left: 59%; /* Adjusts the horizontal positioning to align with input */
+                cursor: pointer;
+                background-color: #4caf50; /* Default background color */
+                border: none; /* Removes default border */
+                display: flex; /* Aligns content */
+                justify-content: center; /* Centers content horizontally */
+                align-items: center; /* Centers content vertically */
+            }
+
+            /* Hover Effect */
+            .send:hover {
+                background-color: #45a049; /* Darker green on hover */
+                transform: scale(1.1); /* Slightly enlarges the button */
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Adds shadow effect */
+            }
+
+            /* Click/Active Effect */
+            .send:active {
+                background-color: #9e7e40; /* Even darker green on click */
+                transform: scale(0.95); /* Slightly shrinks the button */
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Reduces shadow effect */
+            }
+
+
+              img {
+                  height: 40px;
+                  cursor: pointer;
+                  position: fixed; /* Ensures it stays in place on scroll */
+                  bottom: 12%; /* Matches the other elements */
+                  left: 59%; /* Adjusts horizontal positioning relative to the send button */
+              }
+              h1{
+                position: fixed;
+                font-size:40px;
+              }
+              .user{
+                position: absolute;
+                top: 5%;
+                list-style: none;
+                right: 14%; /* Moves it 10px to the right */
+                background-color: #4caf50; /* Sets the background color */
+                border-radius: 10px; /* Rounds the corners */
+                padding: 10px 20px; /* Adds padding for better click area */
+                color: white; /* Sets text color to white */
+                border: none; /* Removes the default border */
+                cursor: pointer; /* Makes it look clickable */
+                height:30px;
+              }
     </style>
   </head>
   <body>
-    <h1>Chat Room</h1>
+    <div>
+      <h1>Chat Room</h1>
+      <div class="user"><a href="{% url 'user_list' %}">User List</a></div>
+      <div class="button-container">
+        <button class="btn"><a href="/Logout/">Logout</a></button>
+      </div>
+    </div>
 
+    <div id="messages"></div>
     <form id="form">
       <input type="text" name="message" autocomplete="off" />
       <button class="send" type="submit">
@@ -83,38 +172,39 @@
         />
       </button>
     </form>
-
-    <div id="messages"></div>
-
     <script>
       let url = `ws://${window.location.host}/ws/socket-server/`;
 
       const chatSocket = new WebSocket(url);
 
+      let senderName = localStorage.getItem("senderName");
+      if (!senderName) {
+        localStorage.setItem("senderName", senderName);
+      }
+
       chatSocket.onmessage = function (e) {
         let data = JSON.parse(e.data);
-        console.log("Data: ", data);
+        console.log("Data:", data);
 
         if (data.type === "chat") {
           let messages = document.getElementById("messages");
-
+          let cssClass = data.sender === senderName ? "sender" : "receiver";
           messages.insertAdjacentHTML(
             "beforeend",
-            `<div>
-                                                      <p>${data.message}</p>
-                                                    </div>`
+            `<div class="${cssClass}">
+          <p>${data.message}</p>
+        </div>`
           );
         }
       };
-
       let form = document.getElementById("form");
-
       form.addEventListener("submit", (e) => {
         e.preventDefault();
         let message = e.target.message.value;
         chatSocket.send(
           JSON.stringify({
             message: message,
+            sender: senderName,
           })
         );
         form.reset();
