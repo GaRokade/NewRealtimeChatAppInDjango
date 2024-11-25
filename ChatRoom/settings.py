@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-#WSGI_APPLICATION = 'ChatRoom.wsgi.application'
+WSGI_APPLICATION = 'ChatRoom.wsgi.application'
 
 import os
 # Database
