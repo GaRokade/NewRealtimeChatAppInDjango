@@ -55,3 +55,7 @@ def Login(request):
             return redirect(next_url)
         
     return render(request, 'login.html')
+def logout_page(request):
+    logout(request)
+    return redirect('/login/')
+
