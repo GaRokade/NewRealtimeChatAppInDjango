@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p9@s04i$5d-05x_jbp=dy3n3ccq_ju2ob*4buo^m0x!2@-@)k0'
+SECRET_KEY = 'django-insecure-n*hw60u3f8hch1i1q_@6!belp92%91765c=b(4eg!)qj^&qcpw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     'chat.apps.ChatConfig',
-      'channels',
+    'channels',
+    'chat.apps.ChatConfig',
 ]
 
 MIDDLEWARE = [
@@ -51,7 +51,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ASGI_APPLICATION = 'ChatRoom.asgi.application'
 ROOT_URLCONF = 'ChatRoom.urls'
 
 TEMPLATES = [
@@ -70,9 +69,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ChatRoom.wsgi.application'
+#WSGI_APPLICATION = 'ChatRoom.wsgi.application'
 
-
+import os
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -82,6 +81,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+MIDDLEWARE += ['chat.middleware.LoginRequiredMiddleware']
+
 
 
 # Password validation
@@ -117,13 +118,22 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+ASGI_APPLICATION = 'ChatRoom.asgi.application'
+  # Ensure this is set to True in development
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
+# Make sure you have this set up for static files:
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # This points to the "static" folder in the base directory
+]
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels.layers.InMemoryChannelLayer'
