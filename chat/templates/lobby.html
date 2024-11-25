@@ -11,59 +11,58 @@
                 .button-container {
                   position:Fixed
                   display: flex;
-                  justify-content: flex-start; /* Aligns buttons horizontally */
-                  align-items: flex-end; /* Aligns buttons vertically at the bottom */
-                  height: 220px; /* Giving some height to the container */
+                  justify-content: flex-start;
+                  align-items: flex-end;
+                  height: 220px;
                 }
 
                 .btn {
                   position: absolute;
                   top: 5%;
-                  right: 8%; /* Moves it 10px to the right */
-                  background-color: #4caf50; /* Sets the background color */
-                  border-radius: 10px; /* Rounds the corners */
-                  padding: 10px 20px; /* Adds padding for better click area */
-                  color: white; /* Sets text color to white */
-                  border: none; /* Removes the default border */
-                  cursor: pointer; /* Makes it look clickable */
+                  right: 8%;
+                  background-color: #4caf50;
+                  border-radius: 10px;
+                  padding: 10px 20px;
+                  color: white;
+                  border: none;
+                  cursor: pointer;
                   height:48px;
                 }
 
-                /* Optional: Button hover effect */
+
                 .btn:hover {
                   background-color: #45a049;
-                  transform: scale(1.1); /* Slightly enlarges the button */
+                  transform: scale(1.1);
                   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
                 }
                 .sender {
                   position: relative;
                   left: 20px;
-                  background-color: #7fffd4; /* Background color for sender */
+                  background-color: #7fffd4;
                   border-radius: 10px;
                   margin: 10px 0;
                   width: fit-content;
                   padding: 5px 8px;
                   font-size: 20px;
-                  color: #000; /* Text color (black) */
+                  color: #000;
                 }
 
                 .receiver {
-                  position: absolute; /* Fixed "absolute" to "relative" */
-                  right: 20px; /* Corrected property with semicolon */
+                  position: absolute;
+                  right: 20px;
                   background-color: rgba(
                     0,
                     212,
                     255,
                     1
-                  ); /* Background color for receiver */
+                  );
                   border-radius: 10px;
                   margin: 10px 0;
                   padding: 5px 8px;
                   width: fit-content;
-                  height: fit-content; /* Corrected "fi-content" */
+                  height: fit-content;
                   font-size: 20px;
-                  color: #000; /* Text color (black) */
-                }
+                  color: #000;
 
                 body {
                   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -84,57 +83,57 @@
                   }
                 }
                 input {
-                  position: fixed; /* Ensures it stays in place on scroll */
+                  position: fixed;
                   width: 282px;
                   height: 37px;
                   border-radius: 10px;
-                  bottom: 12%; /* Adjusts the vertical positioning */
-                  left: 37%; /* Adjusts the horizontal positioning */
+                  bottom: 12%;
+                  left: 37%;
                   font-size: 20px;
               }
               .nouder{
                 text-decoration: none;
               }
       input:hover{
-        transform: scale(1.1); /* Slightly enlarges the button */
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Adds shadow effect */
+        transform: scale(1.1);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
       }
               .send {
-                position: fixed; /* Ensures it stays in place on scroll */
+                position: fixed;
                 height: 42px;
                 width: 44px;
                 border-radius: 10px;
-                bottom: 12%; /* Matches the input field */
-                left: 59%; /* Adjusts the horizontal positioning to align with input */
+                bottom: 12%;
+                left: 59%;
                 cursor: pointer;
-                background-color: #4caf50; /* Default background color */
-                border: none; /* Removes default border */
-                display: flex; /* Aligns content */
-                justify-content: center; /* Centers content horizontally */
-                align-items: center; /* Centers content vertically */
+                background-color: #4caf50;
+                border: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
 
-            /* Hover Effect */
+
             .send:hover {
-                background-color: #45a049; /* Darker green on hover */
-                transform: scale(1.1); /* Slightly enlarges the button */
-                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Adds shadow effect */
+                background-color: #45a049;
+                transform: scale(1.1);
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
             }
 
-            /* Click/Active Effect */
+
             .send:active {
-                background-color: #9e7e40; /* Even darker green on click */
-                transform: scale(0.95); /* Slightly shrinks the button */
-                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Reduces shadow effect */
+                background-color: #9e7e40;
+                transform: scale(0.95);
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
             }
 
 
               img {
                   height: 40px;
                   cursor: pointer;
-                  position: fixed; /* Ensures it stays in place on scroll */
-                  bottom: 12%; /* Matches the other elements */
-                  left: 59%; /* Adjusts horizontal positioning relative to the send button */
+                  position: fixed;
+                  bottom: 12%;
+                  left: 59%;
               }
               h1{
                 position: fixed;
@@ -144,13 +143,13 @@
                 position: absolute;
                 top: 5%;
                 list-style: none;
-                right: 14%; /* Moves it 10px to the right */
-                background-color: #4caf50; /* Sets the background color */
-                border-radius: 10px; /* Rounds the corners */
-                padding: 10px 20px; /* Adds padding for better click area */
-                color: white; /* Sets text color to white */
-                border: none; /* Removes the default border */
-                cursor: pointer; /* Makes it look clickable */
+                right: 14%;
+                background-color: #4caf50;
+                border-radius: 10px;
+                padding: 10px 20px;
+                color: white;
+                border: none;
+                cursor: pointer;
                 height:30px;
               }
     </style>
