@@ -5,6 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat Room</title>
+    <style>
+      .sender {
+        position: relative;
+        left: 20px;
+        background-color: #7fffd4; /* Background color for sender */
+        border-radius: 10px;
+        margin: 10px 0;
+        width: fit-content;
+        padding: 5px 8px;
+        font-size: 20px;
+        color: #000; /* Text color (black) */
+      }
+
+      .receiver {
+        position: absolute; /* Fixed "absolute" to "relative" */
+        right: 20px; /* Corrected property with semicolon */
+        background-color: rgba(
+          0,
+          212,
+          255,
+          1
+        ); /* Background color for receiver */
+        border-radius: 10px;
+        margin: 10px 0;
+        padding: 5px 8px;
+        width: fit-content;
+        height: fit-content; /* Corrected "fi-content" */
+        font-size: 20px;
+        color: #000; /* Text color (black) */
+      }
+    </style>
   </head>
   <body>
     <h1>Chat Room</h1>
