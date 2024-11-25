@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ASGI_APPLICATION = 'chatRoom.asgi.application'
+ASGI_APPLICATION = 'ChatRoom.asgi.application'
 ROOT_URLCONF = 'ChatRoom.urls'
 
 TEMPLATES = [
