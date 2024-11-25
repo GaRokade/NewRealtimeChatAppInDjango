@@ -35,3 +35,26 @@ def register(request):
         messages.info(request,"The account Created Successfully")
         return redirect('/register/')
     return render(request,'register.html')   
+
+def Login(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        if not User.objects.filter(username=username).exists():
+            messages.info(request, "Invalid Username")
+            return redirect('/login/')
+        
+        user = authenticate(username=username, password=password)
+        if user is None:
+            messages.info(request, "Invalid Password")
+            return redirect('/login/')
+        else:
+            auth_login(request, user)
+            next_url = request.GET.get('next', '/chat/')  # Redirect to 'next' or default to '/chat/'
+            return redirect(next_url)
+        
+    return render(request, 'login.html')
+def logout_page(request):
+    logout(request)
+    # return redirect('/login/')
