@@ -35,6 +35,46 @@
         font-size: 20px;
         color: #000; /* Text color (black) */
       }
+      .send {
+        position: fixed; /* Ensures it stays in place on scroll */
+        height: 42px;
+        width: 44px;
+        border-radius: 10px;
+        bottom: 12%; /* Matches the input field */
+        left: 59%; /* Adjusts the horizontal positioning to align with input */
+        cursor: pointer;
+        background-color: #4caf50; /* Default background color */
+        border: none; /* Removes default border */
+        display: flex; /* Aligns content */
+        justify-content: center; /* Centers content horizontally */
+        align-items: center; /* Centers content vertically */
+      }
+
+      /* Hover Effect */
+      .send:hover {
+        background-color: #45a049; /* Darker green on hover */
+        transform: scale(1.1); /* Slightly enlarges the button */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Adds shadow effect */
+      }
+
+      /* Click/Active Effect */
+      .send:active {
+        background-color: #9e7e40; /* Even darker green on click */
+        transform: scale(0.95); /* Slightly shrinks the button */
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Reduces shadow effect */
+      }
+
+      img {
+        height: 40px;
+        cursor: pointer;
+        position: fixed; /* Ensures it stays in place on scroll */
+        bottom: 12%; /* Matches the other elements */
+        left: 59%; /* Adjusts horizontal positioning relative to the send button */
+      }
+      h1 {
+        position: fixed;
+        font-size: 40px;
+      }
     </style>
   </head>
   <body>
