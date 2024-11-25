@@ -21,3 +21,6 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+class User(models.Model):
+    username = models.CharField(max_length=100)
+    # Other fields

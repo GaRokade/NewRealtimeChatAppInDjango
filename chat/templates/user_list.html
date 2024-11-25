@@ -1,11 +1,17 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online Users</title>
+    <!-- Link to the favicon -->
   </head>
   <body>
     <h2>Online Users</h2>
     <ul>
+      <!-- Loop through the users list and display each username -->
       {% for user in users %}
       <li>{{ user.username }}</li>
       {% endfor %}
@@ -13,6 +19,7 @@
 
     <h3>User Activity</h3>
     <ul>
+      <!-- Loop through the profiles list and display user activity details -->
       {% for profile in profiles %}
       <li>
         {{ profile.user.username }} - Last Active: {{ profile.last_active }}

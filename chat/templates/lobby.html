@@ -179,9 +179,10 @@
 
       let senderName = localStorage.getItem("senderName");
       if (!senderName) {
+        senderName = "Anonymous";
         localStorage.setItem("senderName", senderName);
       }
-
+      let username = senderName;
       chatSocket.onmessage = function (e) {
         let data = JSON.parse(e.data);
         console.log("Data:", data);

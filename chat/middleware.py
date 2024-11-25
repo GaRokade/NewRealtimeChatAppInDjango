@@ -6,8 +6,15 @@ class LoginRequiredMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        # Bypass login check for login and admin pages
-        if request.path.startswith(reverse('login')) or request.path.startswith('/admin/'):
+        # Define paths that should bypass the login requirement
+        exempt_paths = [
+            reverse('login'),  # Login page
+            reverse('register'),  # Register page
+            '/admin/',  # Admin panel
+        ]
+
+        # Allow access to exempt paths
+        if any(request.path.startswith(path) for path in exempt_paths):
             return self.get_response(request)
 
         # Redirect to login page if user is not authenticated

@@ -70,6 +70,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ChatRoom.wsgi.application'
+# settings.py
+TIME_ZONE = 'Asia/Kolkata'
+USE_TZ = True
 
 import os
 # Database
@@ -122,11 +125,7 @@ ASGI_APPLICATION = 'ChatRoom.asgi.application'
   # Ensure this is set to True in development
 
 STATIC_URL = '/static/'
-
-# Make sure you have this set up for static files:
-STATICFILES_DIRS = [
-    BASE_DIR / "static",  # This points to the "static" folder in the base directory
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 # Default primary key field type
