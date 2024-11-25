@@ -13,6 +13,8 @@
       <input type="text" name="message" autocomplete="off" />
     </form>
 
+    <div id="messages"></div>
+
     <script>
       let url = `ws://${window.location.host}/ws/socket-server/`;
 
@@ -21,6 +23,17 @@
       chatSocket.onmessage = function (e) {
         let data = JSON.parse(e.data);
         console.log("Data: ", data);
+
+        if (data.type === "chat") {
+          let messages = document.getElementById("messages");
+
+          messages.insertAdjacentHTML(
+            "beforeend",
+            `<div>
+                                                      <p>${data.message}</p>
+                                                    </div>`
+          );
+        }
       };
 
       let form = document.getElementById("form");
